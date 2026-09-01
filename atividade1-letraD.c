@@ -29,11 +29,13 @@ void encontrarSalarios(funcionario func[], int quantidade) {
 }
 
 int main() {
-    Funcionario funcionarios[2];
+    funcionario funcionarios[100];
+    int quantidade;
+    printf("Quantos funcionarios deseja adicionar? ");
+    scanf("%d", &quantidade);
+    getchar();
     
-    printf("=== Cadastro de Funcionarios ===\n\n");
-    
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < quantidade; i++) {
         printf("Funcionario %d:\n", i + 1);
         
         printf("Nome: ");
@@ -47,13 +49,15 @@ int main() {
         scanf("%s", funcionarios[i].cargo);
         
         printf("Salario: R$ ");
-        scanf("%lf", &funcionarios[i].salario);
+        scanf("%f", &funcionarios[i].salario);
         
         getchar();
         printf("\n");
     }
     
-    encontrarSalarios(funcionarios, 2);
+    if (quantidade > 0) {
+        encontrarSalarios(funcionarios, quantidade);
+    }
     
     return 0;
 }
